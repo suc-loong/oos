@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hctel.oos.ncmount.dao.MeInfosDao">
+
+    <resultMap type="com.hctel.oos.ncmount.entity.MeInfos" id="MeInfosMap">
+        <result property="elmtNo" column="elmt_no" jdbcType="INTEGER"/>
+        <result property="uuid" column="uuid" jdbcType="VARCHAR"/>
+        <result property="elmtName" column="elmt_name" jdbcType="VARCHAR"/>
+        <result property="manufacturer" column="manufacturer" jdbcType="VARCHAR"/>
+        <result property="elmtAlias" column="elmt_alias" jdbcType="VARCHAR"/>
+        <result property="elmtType" column="elmt_type" jdbcType="INTEGER"/>
+        <result property="elmtSpec" column="elmt_spec" jdbcType="VARCHAR"/>
+        <result property="softwareVersion" column="software_version" jdbcType="VARCHAR"/>
+        <result property="hardwareVersion" column="hardware_version" jdbcType="VARCHAR"/>
+        <result property="ipAddress" column="ip_address" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="powerMode" column="power_mode" jdbcType="INTEGER"/>
+        <result property="workMode" column="work_mode" jdbcType="INTEGER"/>
+        <result property="location" column="location" jdbcType="VARCHAR"/>
+        <result property="rack" column="rack" jdbcType="VARCHAR"/>
+        <result property="holder" column="holder" jdbcType="VARCHAR"/>
+        <result property="longitude" column="longitude" jdbcType="NUMERIC"/>
+        <result property="latitude" column="latitude" jdbcType="NUMERIC"/>
+        <result property="parentElmtNo" column="parent_elmt_no" jdbcType="INTEGER"/>
+        <result property="createDatetime" column="create_datetime" jdbcType="TIMESTAMP"/>
+        <result property="createUser" column="create_user" jdbcType="VARCHAR"/>
+        <result property="leftTopx" column="left_topx" jdbcType="INTEGER"/>
+        <result property="leftTopy" column="left_topy" jdbcType="INTEGER"/>
+        <result property="elmtRemarks" column="elmt_remarks" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="MeInfosMap">
+        select
+          elmt_no, uuid, elmt_name, manufacturer, elmt_alias, elmt_type, elmt_spec, software_version, hardware_version, ip_address, status, power_mode, work_mode, location, rack, holder, longitude, latitude, parent_elmt_no, create_datetime, create_user, left_topx, left_topy, elmt_remarks
+        from hc_manager.me_infos
+        where elmt_no = #{elmtNo}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="MeInfosMap">
+        select
+          elmt_no, uuid, elmt_name, manufacturer, elmt_alias, elmt_type, elmt_spec, software_version, hardware_version, ip_address, status, power_mode, work_mode, location, rack, holder, longitude, latitude, parent_elmt_no, create_datetime, create_user, left_topx, left_topy, elmt_remarks
+        from hc_manager.me_infos
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="MeInfosMap">
+        select
+        elmt_no, uuid, elmt_name, manufacturer, elmt_alias, elmt_type, elmt_spec, software_version, hardware_version,
+        ip_address, status, power_mode, work_mode, location, rack, holder, longitude, latitude, parent_elmt_no,
+        create_datetime, create_user, left_topx, left_topy, elmt_remarks
+        from hc_manager.me_infos
+        <where>
+            <if test="elmtNo != null">
+                and elmt_no = #{elmtNo}
+            </if>
+            <if test="uuid != null and uuid != ''">
+                and uuid = #{uuid}
+            </if>
+            <if test="elmtName != null and elmtName != ''">
+                and elmt_name = #{elmtName}
+            </if>
+            <if test="manufacturer != null and manufacturer != ''">
+                and manufacturer = #{manufacturer}
+            </if>
+            <if test="elmtAlias != null and elmtAlias != ''">
+                and elmt_alias = #{elmtAlias}
+            </if>
+            <if test="elmtType != null">
+                and elmt_type = #{elmtType}
+            </if>
+            <if test="elmtSpec != null and elmtSpec != ''">
+                and elmt_spec = #{elmtSpec}
+            </if>
+            <if test="softwareVersion != null and softwareVersion != ''">
+                and software_version = #{softwareVersion}
+            </if>
+            <if test="hardwareVersion != null and hardwareVersion != ''">
+                and hardware_version = #{hardwareVersion}
+            </if>
+            <if test="ipAddress != null and ipAddress != ''">
+                and ip_address = #{ipAddress}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="powerMode != null">
+                and power_mode = #{powerMode}
+            </if>
+            <if test="workMode != null">
+                and work_mode = #{workMode}
+            </if>
+            <if test="location != null and location != ''">
+                and location = #{location}
+            </if>
+            <if test="rack != null and rack != ''">
+                and rack = #{rack}
+            </if>
+            <if test="holder != null and holder != ''">
+                and holder = #{holder}
+            </if>
+            <if test="longitude != null">
+                and longitude = #{longitude}
+            </if>
+            <if test="latitude != null">
+                and latitude = #{latitude}
+            </if>
+            <if test="parentElmtNo != null">
+                and parent_elmt_no = #{parentElmtNo}
+            </if>
+            <if test="createDatetime != null">
+                and create_datetime = #{createDatetime}
+            </if>
+            <if test="createUser != null and createUser != ''">
+                and create_user = #{createUser}
+            </if>
+            <if test="leftTopx != null">
+                and left_topx = #{leftTopx}
+            </if>
+            <if test="leftTopy != null">
+                and left_topy = #{leftTopy}
+            </if>
+            <if test="elmtRemarks != null and elmtRemarks != ''">
+                and elmt_remarks = #{elmtRemarks}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="elmtNo" useGeneratedKeys="true">
+        insert into hc_manager.me_infos(uuid, elmt_name, manufacturer, elmt_alias, elmt_type, elmt_spec, software_version, hardware_version, ip_address, status, power_mode, work_mode, location, rack, holder, longitude, latitude, parent_elmt_no, create_datetime, create_user, left_topx, left_topy, elmt_remarks)
+        values (#{uuid}, #{elmtName}, #{manufacturer}, #{elmtAlias}, #{elmtType}, #{elmtSpec}, #{softwareVersion}, #{hardwareVersion}, #{ipAddress}, #{status}, #{powerMode}, #{workMode}, #{location}, #{rack}, #{holder}, #{longitude}, #{latitude}, #{parentElmtNo}, #{createDatetime}, #{createUser}, #{leftTopx}, #{leftTopy}, #{elmtRemarks})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="elmtNo" useGeneratedKeys="true">
+        insert into hc_manager.me_infos(uuid, elmt_name, manufacturer, elmt_alias, elmt_type, elmt_spec,
+        software_version, hardware_version, ip_address, status, power_mode, work_mode, location, rack, holder,
+        longitude, latitude, parent_elmt_no, create_datetime, create_user, left_topx, left_topy, elmt_remarks)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.uuid}, #{entity.elmtName}, #{entity.manufacturer}, #{entity.elmtAlias}, #{entity.elmtType},
+            #{entity.elmtSpec}, #{entity.softwareVersion}, #{entity.hardwareVersion}, #{entity.ipAddress},
+            #{entity.status}, #{entity.powerMode}, #{entity.workMode}, #{entity.location}, #{entity.rack},
+            #{entity.holder}, #{entity.longitude}, #{entity.latitude}, #{entity.parentElmtNo}, #{entity.createDatetime},
+            #{entity.createUser}, #{entity.leftTopx}, #{entity.leftTopy}, #{entity.elmtRemarks})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="elmtNo" useGeneratedKeys="true">
+        insert into hc_manager.me_infos(uuid, elmt_name, manufacturer, elmt_alias, elmt_type, elmt_spec,
+        software_version, hardware_version, ip_address, status, power_mode, work_mode, location, rack, holder,
+        longitude, latitude, parent_elmt_no, create_datetime, create_user, left_topx, left_topy, elmt_remarks)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.uuid}, #{entity.elmtName}, #{entity.manufacturer}, #{entity.elmtAlias}, #{entity.elmtType},
+            #{entity.elmtSpec}, #{entity.softwareVersion}, #{entity.hardwareVersion}, #{entity.ipAddress},
+            #{entity.status}, #{entity.powerMode}, #{entity.workMode}, #{entity.location}, #{entity.rack},
+            #{entity.holder}, #{entity.longitude}, #{entity.latitude}, #{entity.parentElmtNo}, #{entity.createDatetime},
+            #{entity.createUser}, #{entity.leftTopx}, #{entity.leftTopy}, #{entity.elmtRemarks})
+        </foreach>
+        on duplicate key update
+        uuid = values(uuid) , elmt_name = values(elmt_name) , manufacturer = values(manufacturer) , elmt_alias =
+        values(elmt_alias) , elmt_type = values(elmt_type) , elmt_spec = values(elmt_spec) , software_version =
+        values(software_version) , hardware_version = values(hardware_version) , ip_address = values(ip_address) ,
+        status = values(status) , power_mode = values(power_mode) , work_mode = values(work_mode) , location =
+        values(location) , rack = values(rack) , holder = values(holder) , longitude = values(longitude) , latitude =
+        values(latitude) , parent_elmt_no = values(parent_elmt_no) , create_datetime = values(create_datetime) ,
+        create_user = values(create_user) , left_topx = values(left_topx) , left_topy = values(left_topy) , elmt_remarks
+        = values(elmt_remarks)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update hc_manager.me_infos
+        <set>
+            <if test="uuid != null and uuid != ''">
+                uuid = #{uuid},
+            </if>
+            <if test="elmtName != null and elmtName != ''">
+                elmt_name = #{elmtName},
+            </if>
+            <if test="manufacturer != null and manufacturer != ''">
+                manufacturer = #{manufacturer},
+            </if>
+            <if test="elmtAlias != null and elmtAlias != ''">
+                elmt_alias = #{elmtAlias},
+            </if>
+            <if test="elmtType != null">
+                elmt_type = #{elmtType},
+            </if>
+            <if test="elmtSpec != null and elmtSpec != ''">
+                elmt_spec = #{elmtSpec},
+            </if>
+            <if test="softwareVersion != null and softwareVersion != ''">
+                software_version = #{softwareVersion},
+            </if>
+            <if test="hardwareVersion != null and hardwareVersion != ''">
+                hardware_version = #{hardwareVersion},
+            </if>
+            <if test="ipAddress != null and ipAddress != ''">
+                ip_address = #{ipAddress},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="powerMode != null">
+                power_mode = #{powerMode},
+            </if>
+            <if test="workMode != null">
+                work_mode = #{workMode},
+            </if>
+            <if test="location != null and location != ''">
+                location = #{location},
+            </if>
+            <if test="rack != null and rack != ''">
+                rack = #{rack},
+            </if>
+            <if test="holder != null and holder != ''">
+                holder = #{holder},
+            </if>
+            <if test="longitude != null">
+                longitude = #{longitude},
+            </if>
+            <if test="latitude != null">
+                latitude = #{latitude},
+            </if>
+            <if test="parentElmtNo != null">
+                parent_elmt_no = #{parentElmtNo},
+            </if>
+            <if test="createDatetime != null">
+                create_datetime = #{createDatetime},
+            </if>
+            <if test="createUser != null and createUser != ''">
+                create_user = #{createUser},
+            </if>
+            <if test="leftTopx != null">
+                left_topx = #{leftTopx},
+            </if>
+            <if test="leftTopy != null">
+                left_topy = #{leftTopy},
+            </if>
+            <if test="elmtRemarks != null and elmtRemarks != ''">
+                elmt_remarks = #{elmtRemarks},
+            </if>
+        </set>
+        where elmt_no = #{elmtNo}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from hc_manager.me_infos where elmt_no = #{elmtNo}
+    </delete>
+
+</mapper>

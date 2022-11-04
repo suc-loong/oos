@@ -1,0 +1,37 @@
+{
+  "create-odu-connection": {
+    "input": {
+      "client-side-nni": {
+        "nni-ptp-name": "a",
+        "nni-ts-detail": "a",
+        "adaptation-type": "CBR_AMP",
+        "client-signal-type": "s",
+        "switch-capability": "s"
+      },
+      "primary-nni": {
+        "nni-ptp-name": "a",
+        "nni-ts-detail": "a",
+        "adaptation-type": "CBR_BMP",
+        "client-signal-type": "s",
+        "switch-capability": "s"
+      },
+      "secondary-nni": {
+        "nni-ptp-name": "a",
+        "nni-ts-detail": "a",
+        "adaptation-type": "CBR_AMP",
+        "client-signal-type": "s",
+        "switch-capability": "s"
+      },
+      "connection-name": "a",
+      "service-type": "ODU",
+      "layer-protocol-name": "s",
+      "requested-capacity": {
+        "total-size": "1",
+        "cbs": "1",
+        "cir": "1",
+        "pbs": "1",
+        "pir": "1"
+      }
+    }
+  }
+}

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hctel.oos.ncmount.dao.NodeInfoDao">
+
+    <resultMap type="com.hctel.oos.ncmount.topology.entity.NodeInfo" id="NodeInfoMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="type" column="type" jdbcType="VARCHAR"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="tcpOnly" column="tcp_only" jdbcType="INTEGER"/>
+        <result property="reconnect" column="reconnect" jdbcType="INTEGER"/>
+        <result property="username" column="username" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+        <result property="port" column="port" jdbcType="INTEGER"/>
+        <result property="host" column="host" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="NodeInfoMap">
+        select
+          id, type, name, tcp_only, reconnect, username, password, port, host
+        from loo.node_info
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="NodeInfoMap">
+        select
+          id, type, name, tcp_only, reconnect, username, password, port, host
+        from loo.node_info
+        limit #{offset}, #{limit}
+    </select>
+
+
+    <!--无条件查询全部内容-->
+    <select id="getAll" resultMap="NodeInfoMap">
+        select
+        id, type, name, tcp_only, reconnect, username, password, port, host
+        from loo.node_info
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="NodeInfoMap">
+        select
+        id, type, name, tcp_only, reconnect, username, password, port, host
+        from loo.node_info
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="type != null and type != ''">
+                and type = #{type}
+            </if>
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="tcpOnly != null">
+                and tcp_only = #{tcpOnly}
+            </if>
+            <if test="reconnect != null">
+                and reconnect = #{reconnect}
+            </if>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+            <if test="port != null">
+                and port = #{port}
+            </if>
+            <if test="host != null and host != ''">
+                and host = #{host}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into loo.node_info(type, name, tcp_only, reconnect, username, password, port, host)
+        values (#{type}, #{name}, #{tcpOnly}, #{reconnect}, #{username}, #{password}, #{port}, #{host})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into loo.node_info(type, name, tcp_only, reconnect, username, password, port, host)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.type}, #{entity.name}, #{entity.tcpOnly}, #{entity.reconnect}, #{entity.username},
+            #{entity.password}, #{entity.port}, #{entity.host})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into loo.node_info(type, name, tcp_only, reconnect, username, password, port, host)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.type}, #{entity.name}, #{entity.tcpOnly}, #{entity.reconnect}, #{entity.username},
+            #{entity.password}, #{entity.port}, #{entity.host})
+        </foreach>
+        on duplicate key update
+        type = values(type) , name = values(name) , tcp_only = values(tcp_only) , reconnect = values(reconnect) ,
+        username = values(username) , password = values(password) , port = values(port) , host = values(host)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update loo.node_info
+        <set>
+            <if test="type != null and type != ''">
+                type = #{type},
+            </if>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="tcpOnly != null">
+                tcp_only = #{tcpOnly},
+            </if>
+            <if test="reconnect != null">
+                reconnect = #{reconnect},
+            </if>
+            <if test="username != null and username != ''">
+                username = #{username},
+            </if>
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
+            <if test="port != null">
+                port = #{port},
+            </if>
+            <if test="host != null and host != ''">
+                host = #{host},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from loo.node_info where id = #{id}
+    </delete>
+
+</mapper>

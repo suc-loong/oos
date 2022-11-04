@@ -1,0 +1,14 @@
+{
+  "node": [
+    {
+      "node-id": "hclink",
+      "netconf-node-topology:username": "root",
+      "netconf-node-topology:password": "123456",
+      "netconf-node-topology:host": "192.168.1.101",
+      "netconf-node-topology:port": "830",
+      "netconf-node-topology:tcp-only": "false",
+      "netconf-node-topology:reconnect-on-changed-schema": "true",
+      "netconf-node-topology:pass-through": {}
+    }
+  ]
+}

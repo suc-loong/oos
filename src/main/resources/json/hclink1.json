@@ -1,0 +1,204 @@
+{
+  "node": [
+    {
+      "node-id": "hclink1",
+      "netconf-node-topology:username": "root",
+      "netconf-node-topology:password": "123456",
+      "netconf-node-topology:host": "192.168.1.101",
+      "netconf-node-topology:port": "830",
+      "netconf-node-topology:tcp-only": "false",
+      "netconf-node-topology:reconnect-on-changed-schema": "true",
+      "netconf-node-topology:pass-through": {}
+    },
+    {
+      "node-id": "hclink2",
+      "netconf-node-topology:username": "root",
+      "netconf-node-topology:password": "123456",
+      "netconf-node-topology:host": "192.168.1.101",
+      "netconf-node-topology:port": "830",
+      "netconf-node-topology:tcp-only": "false",
+      "netconf-node-topology:reconnect-on-changed-schema": "true",
+      "netconf-node-topology:pass-through": {}
+    },
+    {
+      "node-id": "hclink3",
+      "netconf-node-topology:username": "root",
+      "netconf-node-topology:password": "123456",
+      "netconf-node-topology:host": "192.168.1.101",
+      "netconf-node-topology:port": "830",
+      "netconf-node-topology:tcp-only": "false",
+      "netconf-node-topology:reconnect-on-changed-schema": "true",
+      "netconf-node-topology:pass-through": {}
+    },
+    {
+      "node-id": "hclink4",
+      "netconf-node-topology:username": "root",
+      "netconf-node-topology:password": "123456",
+      "netconf-node-topology:host": "192.168.1.101",
+      "netconf-node-topology:port": "830",
+      "netconf-node-topology:tcp-only": "false",
+      "netconf-node-topology:reconnect-on-changed-schema": "true",
+      "netconf-node-topology:pass-through": {}
+    },
+    {
+      "node-id": "hclink5",
+      "netconf-node-topology:username": "root",
+      "netconf-node-topology:password": "123456",
+      "netconf-node-topology:host": "192.168.1.101",
+      "netconf-node-topology:port": "830",
+      "netconf-node-topology:tcp-only": "false",
+      "netconf-node-topology:reconnect-on-changed-schema": "true",
+      "netconf-node-topology:pass-through": {}
+    },
+    {
+      "node-id": "hclink6",
+      "netconf-node-topology:username": "root",
+      "netconf-node-topology:password": "123456",
+      "netconf-node-topology:host": "192.168.1.101",
+      "netconf-node-topology:port": "830",
+      "netconf-node-topology:tcp-only": "false",
+      "netconf-node-topology:reconnect-on-changed-schema": "true",
+      "netconf-node-topology:pass-through": {}
+    },
+    {
+      "node-id": "hclink7",
+      "netconf-node-topology:username": "root",
+      "netconf-node-topology:password": "123456",
+      "netconf-node-topology:host": "192.168.1.101",
+      "netconf-node-topology:port": "830",
+      "netconf-node-topology:tcp-only": "false",
+      "netconf-node-topology:reconnect-on-changed-schema": "true",
+      "netconf-node-topology:pass-through": {}
+    },
+    {
+      "node-id": "hclink8",
+      "netconf-node-topology:username": "root",
+      "netconf-node-topology:password": "123456",
+      "netconf-node-topology:host": "192.168.1.101",
+      "netconf-node-topology:port": "830",
+      "netconf-node-topology:tcp-only": "false",
+      "netconf-node-topology:reconnect-on-changed-schema": "true",
+      "netconf-node-topology:pass-through": {}
+    },
+    {
+      "node-id": "hclink9",
+      "netconf-node-topology:username": "root",
+      "netconf-node-topology:password": "123456",
+      "netconf-node-topology:host": "192.168.1.101",
+      "netconf-node-topology:port": "830",
+      "netconf-node-topology:tcp-only": "false",
+      "netconf-node-topology:reconnect-on-changed-schema": "true",
+      "netconf-node-topology:pass-through": {}
+    },
+    {
+      "node-id": "hclink10",
+      "netconf-node-topology:username": "root",
+      "netconf-node-topology:password": "123456",
+      "netconf-node-topology:host": "192.168.1.101",
+      "netconf-node-topology:port": "830",
+      "netconf-node-topology:tcp-only": "false",
+      "netconf-node-topology:reconnect-on-changed-schema": "true",
+      "netconf-node-topology:pass-through": {}
+    },
+    {
+      "node-id": "hclink11",
+      "netconf-node-topology:username": "root",
+      "netconf-node-topology:password": "123456",
+      "netconf-node-topology:host": "192.168.1.101",
+      "netconf-node-topology:port": "830",
+      "netconf-node-topology:tcp-only": "false",
+      "netconf-node-topology:reconnect-on-changed-schema": "true",
+      "netconf-node-topology:pass-through": {}
+    },
+    {
+      "node-id": "hclink12",
+      "netconf-node-topology:username": "root",
+      "netconf-node-topology:password": "123456",
+      "netconf-node-topology:host": "192.168.1.101",
+      "netconf-node-topology:port": "830",
+      "netconf-node-topology:tcp-only": "false",
+      "netconf-node-topology:reconnect-on-changed-schema": "true",
+      "netconf-node-topology:pass-through": {}
+    },
+    {
+      "node-id": "hclink13",
+      "netconf-node-topology:username": "root",
+      "netconf-node-topology:password": "123456",
+      "netconf-node-topology:host": "192.168.1.101",
+      "netconf-node-topology:port": "830",
+      "netconf-node-topology:tcp-only": "false",
+      "netconf-node-topology:reconnect-on-changed-schema": "true",
+      "netconf-node-topology:pass-through": {}
+    },
+    {
+      "node-id": "hclink14",
+      "netconf-node-topology:username": "root",
+      "netconf-node-topology:password": "123456",
+      "netconf-node-topology:host": "192.168.1.101",
+      "netconf-node-topology:port": "830",
+      "netconf-node-topology:tcp-only": "false",
+      "netconf-node-topology:reconnect-on-changed-schema": "true",
+      "netconf-node-topology:pass-through": {}
+    },
+    {
+      "node-id": "hclink15",
+      "netconf-node-topology:username": "root",
+      "netconf-node-topology:password": "123456",
+      "netconf-node-topology:host": "192.168.1.101",
+      "netconf-node-topology:port": "830",
+      "netconf-node-topology:tcp-only": "false",
+      "netconf-node-topology:reconnect-on-changed-schema": "true",
+      "netconf-node-topology:pass-through": {}
+    },
+    {
+      "node-id": "hclink16",
+      "netconf-node-topology:username": "root",
+      "netconf-node-topology:password": "123456",
+      "netconf-node-topology:host": "192.168.1.101",
+      "netconf-node-topology:port": "830",
+      "netconf-node-topology:tcp-only": "false",
+      "netconf-node-topology:reconnect-on-changed-schema": "true",
+      "netconf-node-topology:pass-through": {}
+    },
+    {
+      "node-id": "hclink17",
+      "netconf-node-topology:username": "root",
+      "netconf-node-topology:password": "123456",
+      "netconf-node-topology:host": "192.168.1.101",
+      "netconf-node-topology:port": "830",
+      "netconf-node-topology:tcp-only": "false",
+      "netconf-node-topology:reconnect-on-changed-schema": "true",
+      "netconf-node-topology:pass-through": {}
+    },
+    {
+      "node-id": "hclink18",
+      "netconf-node-topology:username": "root",
+      "netconf-node-topology:password": "123456",
+      "netconf-node-topology:host": "192.168.1.101",
+      "netconf-node-topology:port": "830",
+      "netconf-node-topology:tcp-only": "false",
+      "netconf-node-topology:reconnect-on-changed-schema": "true",
+      "netconf-node-topology:pass-through": {}
+    },
+    {
+      "node-id": "hclink19",
+      "netconf-node-topology:username": "root",
+      "netconf-node-topology:password": "123456",
+      "netconf-node-topology:host": "192.168.1.101",
+      "netconf-node-topology:port": "830",
+      "netconf-node-topology:tcp-only": "false",
+      "netconf-node-topology:reconnect-on-changed-schema": "true",
+      "netconf-node-topology:pass-through": {}
+    },
+    {
+      "node-id": "hclink20",
+      "netconf-node-topology:username": "root",
+      "netconf-node-topology:password": "123456",
+      "netconf-node-topology:host": "192.168.1.101",
+      "netconf-node-topology:port": "830",
+      "netconf-node-topology:tcp-only": "false",
+      "netconf-node-topology:reconnect-on-changed-schema": "true",
+      "netconf-node-topology:pass-through": {}
+    }
+  ]
+}

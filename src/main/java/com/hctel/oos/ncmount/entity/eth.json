@@ -1,0 +1,46 @@
+{
+  "input": {
+    "eth-uni": {
+      "uni-ptp-name": "/HC-OTN208_BOX_NETCONFIG/1/1/1/1",
+      "client-vlan-spec": {
+        "vlan-id": [
+          "17"
+        ],
+        "vlan-priority": "3",
+        "access-action": "keep",
+        "vlan-type": "un-tag"
+      },
+      "uni-vlan-spec": {
+        "vlan-id": [
+          "18"
+        ],
+        "vlan-priority": "5",
+        "access-action": "keep",
+        "vlan-type": "un-tag"
+      },
+      "ftp-vlan-spec": {
+        "vlan-id": [
+          "19"
+        ],
+        "vlan-priority": "6",
+        "access-action": "keep",
+        "vlan-type": "un-tag"
+      }
+    },
+    "primary-nni": {
+      "nni-ptp-name": "/HC-OTN208_BOX_NETCONFIG/1/1/1/101",
+      "nni-ts-detail": "8-00",
+      "adaptation-type": "CBR_AMP"
+    },
+    "connection-name": "con_name_1",
+    "service-type": "EPL",
+    "layer-protocol-name": "ETH",
+    "requested-capacity": {
+      "total-size": "1000",
+      "cbs": "1001",
+      "cir": "1002",
+      "ebs": "1003",
+      "eir": "1004"
+    }
+  }
+}

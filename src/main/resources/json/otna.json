@@ -1,0 +1,14 @@
+{
+  "node": [
+    {
+      "node-id": "otna",
+      "netconf-node-topology:username": "admin",
+      "netconf-node-topology:password": "admin123!!!",
+      "netconf-node-topology:host": "192.168.12.112",
+      "netconf-node-topology:port": "830",
+      "netconf-node-topology:tcp-only": "false",
+      "netconf-node-topology:reconnect-on-changed-schema": "true",
+      "netconf-node-topology:pass-through": {}
+    }
+  ]
+}

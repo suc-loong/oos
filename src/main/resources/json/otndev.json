@@ -1,0 +1,14 @@
+{
+  "node": [
+    {
+      "node-id": "otndev",
+      "netconf-node-topology:username": "root",
+      "netconf-node-topology:password": "dfqxyfy",
+      "netconf-node-topology:host": "192.168.135.117",
+      "netconf-node-topology:port": "830",
+      "netconf-node-topology:tcp-only": "false",
+      "netconf-node-topology:reconnect-on-changed-schema": "true",
+      "netconf-node-topology:pass-through": {}
+    }
+  ]
+}

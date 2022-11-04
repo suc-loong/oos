@@ -1,0 +1,19 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_IN_PAGE_ERROR (0xc0000006) at pc=0x0000024b805cf5a0, pid=15240, tid=0x0000000000003ae0
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_271-b09) (build 1.8.0_271-b09)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.271-b09 mixed mode windows-amd64 compressed oops)
+# Problematic frame:
+# 
+[error occurred during error reporting (printing problematic frame), id 0xc0000006]
+
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+#   
+#
+
+
+ [
