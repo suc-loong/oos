@@ -13,6 +13,9 @@ import org.springframework.stereotype.Service;
 
 import javax.xml.bind.DatatypeConverter;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
 
@@ -184,11 +187,28 @@ public class ODLNetconfChannelUtils {
             HttpEntity entity = response.getEntity();
             System.out.println("【Get - Status】：" + response.getStatusLine().getStatusCode());
             result = EntityUtils.toString(entity);
-            System.out.println("【result】：\n" + PrettyJSON.pretty(result));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return JSONObject.parseObject(result);
+
+        //1.1 先将字符串转换成ISO-8859-1 , 然后利用String的构造函数将字符串转换成UTF-8  new String(Bytes[] bytes , “UTF-8”)
+        //将name变量的值转换成字节组，默认转换成ISO-8859-1编码
+        byte[] bytes = result.getBytes();
+        String resultEncode = null;
+        //将name从ISO-8859-1转换成UTF-8
+        try {
+            result = new String(bytes, "UTF-8");
+            //1.2 直接将字符串转换成UTF-8
+            byte[] bytes1 = result.getBytes("UTF-8");
+            result = new String(bytes1);
+            //1.3 UrlEncoder的encoder(字符串,字符码)设置编码 ， UrlDecoder的decoder(字符串,字符码)解密，然后设置指定的字符码
+            resultEncode = URLEncoder.encode(result, "ISO-8859-1");
+            resultEncode = URLDecoder.decode(resultEncode, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        System.out.println("【result】：\n" + PrettyJSON.pretty(resultEncode));
+        return JSONObject.parseObject(resultEncode);
 
     }
 
@@ -467,11 +487,11 @@ public class ODLNetconfChannelUtils {
         JSONObject response = JSONObject.parseObject(res);
 
         if (response.containsKey("output")) {
-            if (response.getJSONObject("output").containsKey("data")) {
-                if (!response.getJSONObject("output").getJSONObject("data").isEmpty())
-                    return response.getJSONObject("output").getJSONObject("data").toJSONString();
-                else return null;
-            }
+            JSONObject output = response.getJSONObject("output");
+            if (output.containsKey("data")&&output.getJSONObject("data")!=null) {
+//                if (!response.getJSONObject("output").getJSONObject("data").isEmpty())
+                return output.getJSONObject("data").toJSONString();
+            } else return null;
         }
         return sendPostRequestToODL(getUrl(operations, nodeName, "ietf-netconf:get"), getObj);
     }
@@ -487,12 +507,11 @@ public class ODLNetconfChannelUtils {
         JSONObject edit = new JSONObject();
         JSONObject input = new JSONObject();
         JSONObject target = new JSONObject();
-        JSONObject target_1 = new JSONObject();
-        target.put("running", target_1);
+        target.put("running", "");
         input.put("target", target);
         input.put("config", object);
         edit.put("input", input);
-        return sendPostRequestToODL(getUrl(operations, nodeName, "ietf-netconf:get"), edit);
+        return sendPostRequestToODL(getUrl(operations, nodeName, "ietf-netconf:edit-config"), edit);
     }
 
     //================================================================================//

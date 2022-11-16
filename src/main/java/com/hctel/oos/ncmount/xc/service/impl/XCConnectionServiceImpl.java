@@ -41,4 +41,18 @@ public class XCConnectionServiceImpl implements XCConnectionService {
         return JSONObject.parseObject(odlNetconfChannelUtils.generalGetRequest(node,connections));
     }
 
+    @Override
+    public String configConnection(String node, JSONObject connection) {
+        JSONObject connections = new JSONObject();
+        connections.put("connections",connection);
+        return odlNetconfChannelUtils.generalEditConfigRequest(node,connection);
+    }
+
+    @Override
+    public String deleteConnection(String node, String name) {
+        String module = "acc-connection:connections/connection/"+name;
+        return odlNetconfChannelUtils.deleteRequest(node,module).toString();
+    }
+
+
 }

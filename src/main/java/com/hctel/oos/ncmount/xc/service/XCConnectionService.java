@@ -38,4 +38,21 @@ public interface XCConnectionService {
      * @return 符合条件的交叉信息（列表）
      */
     JSONObject getConnection(String node, JSONObject connection);
+
+    /**
+     * 修改交叉连接的配置
+     * 例如：修改名称（service-label）
+     * @param node 网元名称
+     * @param connection 下发修改的信息
+     * @return 操作状态
+     */
+    String configConnection(String node,JSONObject connection);
+
+    /**
+     * 删除指定的交叉连接
+     * @param node 网元名称
+     * @param name 连接名称
+     * @return 操作状态
+     */
+    String deleteConnection(String node,String name);
 }

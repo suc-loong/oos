@@ -25,13 +25,18 @@ public class CtpController {
         return ctpService.getCtps(node);
     }
 
+    @GetMapping("/{name}")
+    public JSONObject getCtp(@PathVariable String node,@PathVariable String name){
+        return ctpService.getCtp(node,name);
+    }
+
     @PostMapping
     public JSONObject getCtp(@PathVariable String node,@RequestBody JSONObject ctp){
         return ctpService.getCtp(node,ctp);
     }
 
     @PostMapping("/ctp")
-    public String configCtp(@PathVariable String node,@RequestBody JSONObject object){
-        return ctpService.configCtp(node,object);
+    public String configCtp(@PathVariable String node,@RequestBody JSONObject ctp){
+        return ctpService.configCtp(node,ctp);
     }
 }

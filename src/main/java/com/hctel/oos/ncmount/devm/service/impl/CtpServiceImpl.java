@@ -21,7 +21,14 @@ public class CtpServiceImpl implements CtpService {
 
     @Override
     public JSONObject getCtps(String node) {
-        return null;
+        String module = "acc-devm:ctps";
+        return odlNetconfChannelUtils.getRequest(ODLNetconfChannelUtils.operational, node, module);
+    }
+
+    @Override
+    public JSONObject getCtp(String node, String ctpName) {
+        String module = "acc-devm:ctps/ctp/"+ctpName;
+        return odlNetconfChannelUtils.getRequest(ODLNetconfChannelUtils.operational, node, module);
     }
 
     @Override

@@ -19,6 +19,15 @@ public interface CtpService {
     JSONObject getCtps(String node);
 
     /**
+     * 根据名称获取ctp的内容
+     *
+     * @param node    网元名称
+     * @param ctpName ctp名称
+     * @return ctp信息
+     */
+    JSONObject getCtp(String node, String ctpName);
+
+    /**
      * 获取指定ctp信息
      *
      * @param node 网元名称

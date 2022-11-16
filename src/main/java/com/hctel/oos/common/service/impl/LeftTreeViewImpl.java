@@ -2,6 +2,7 @@ package com.hctel.oos.common.service.impl;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.hctel.oos.common.utils.LoadJSONFile;
 import com.hctel.oos.common.utils.PrettyJSON;
 import com.hctel.oos.netconf.utils.ODLNetconfChannelUtils;
 import org.springframework.stereotype.Service;
@@ -50,6 +51,13 @@ public class LeftTreeViewImpl implements LeftTreeViewService {
         eqs.put("eqs", eq);
         String response = odlNetconfChannelUtils.generalGetRequest(node, eqs);
         JSONObject object = JSONObject.parseObject(response);
+        if(object.containsKey("errors")){
+            LoadJSONFile loadJSONFile = new LoadJSONFile();
+            JSONObject vm = loadJSONFile.getLoadJson("vm-device-template");
+            vm.replace("label","vm-device","虚拟设备-"+node);
+            vm.put("name",node);
+            return vm.toJSONString();
+        }
         JSONArray jsonArray = object.getJSONObject("eqs").getJSONArray("eq");
         System.out.println("[DATA]\n" + jsonArray);
         /*
