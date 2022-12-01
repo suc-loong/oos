@@ -4,8 +4,13 @@ import com.hctel.oos.netconf.notifications.service.impl.SubscribeDeviceMessage;
 import com.hctel.oos.netconf.service.NetconfService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.server.ConfigurableWebServerFactory;
+import org.springframework.boot.web.server.ErrorPage;
+import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 /**
@@ -19,6 +24,9 @@ public class OOSDevApplication {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext run = SpringApplication.run(OOSDevApplication.class, args);
+
+
+
         SubscribeDeviceMessage message = new SubscribeDeviceMessage();
         message.receiveNotification();
 
@@ -36,5 +44,14 @@ public class OOSDevApplication {
             System.out.println(s1 == s2);
         }
     }
+
+    //此方法有效
+//    @Bean
+//    public WebServerFactoryCustomizer<ConfigurableWebServerFactory> webServerFactoryCustomizer(){
+//        return factory -> {
+//            ErrorPage error404Page = new ErrorPage(HttpStatus.NOT_FOUND, "/index.html");
+//            factory.addErrorPages(error404Page);
+//        };
+//    }
 
 }
