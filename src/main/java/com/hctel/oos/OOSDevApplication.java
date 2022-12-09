@@ -1,5 +1,6 @@
 package com.hctel.oos;
 
+import com.hctel.oos.ftpserver.FtpServer4Odl;
 import com.hctel.oos.netconf.notifications.service.impl.SubscribeDeviceMessage;
 import com.hctel.oos.netconf.service.NetconfService;
 import org.springframework.boot.SpringApplication;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
  */
 //包扫描，指定位置
 //@MapperScan({"com.hctel.oos.ncmount","com.hctel.oos.netconf","com.hctel.oos.ncmount.me"})
-@ComponentScan({"com.hctel.oos.ncmount","com.hctel.oos.netconf","com.hctel.oos.common","com.hctel.oos.login"})
+@ComponentScan({"com.hctel.oos.ncmount", "com.hctel.oos.netconf", "com.hctel.oos.common", "com.hctel.oos.login"})
 @SpringBootApplication
 public class OOSDevApplication {
 
@@ -26,6 +27,8 @@ public class OOSDevApplication {
         ConfigurableApplicationContext run = SpringApplication.run(OOSDevApplication.class, args);
 
 
+        FtpServer4Odl ftpServer4Odl = new FtpServer4Odl();
+        ftpServer4Odl.ftpServerStarter();
 
         SubscribeDeviceMessage message = new SubscribeDeviceMessage();
         message.receiveNotification();
