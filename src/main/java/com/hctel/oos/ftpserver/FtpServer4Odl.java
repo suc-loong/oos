@@ -1,5 +1,6 @@
 package com.hctel.oos.ftpserver;
 
+import com.hctel.oos.common.utils.IPUtils;
 import org.apache.ftpserver.FtpServer;
 import org.apache.ftpserver.FtpServerFactory;
 import org.apache.ftpserver.ftplet.Authority;
@@ -8,6 +9,7 @@ import org.apache.ftpserver.listener.ListenerFactory;
 import org.apache.ftpserver.usermanager.impl.BaseUser;
 import org.apache.ftpserver.usermanager.impl.WritePermission;
 
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +27,14 @@ public class FtpServer4Odl {
         ListenerFactory factory = new ListenerFactory();
         //设置监听端口
         factory.setPort(21);
-        factory.setServerAddress("192.168.11.67");
+        String ip = null;
+        try {
+            ip = IPUtils.getLocalHostLANAddress().getHostAddress();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+
+        factory.setServerAddress(ip);
 
         //替换默认监听
         serverFactory.addListener("default", factory.createListener());

@@ -44,6 +44,21 @@ public class MeServiceImpl implements MeService {
     }
 
     @Override
+    public String getDHCP(String node, JSONObject input) {
+        return null;
+    }
+
+    @Override
+    public String setDHCP(String node, JSONObject input) {
+        return null;
+    }
+
+    @Override
+    public String deleteDHCP(String node, JSONObject input) {
+        return null;
+    }
+
+    @Override
     public JSONObject getStatistics(String node) {
         return odlNetconfChannelUtils.getRequest(ODLNetconfChannelUtils.operational,node,"ietf-netconf-monitoring:netconf-state/statistics");
     }

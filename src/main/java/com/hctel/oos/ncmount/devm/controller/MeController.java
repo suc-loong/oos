@@ -34,6 +34,11 @@ public class MeController {
         return meService.configNtpServers(node, JSON.parseObject(json));
     }
 
+    @GetMapping("/dhcp")
+    public String getDHCP(@PathVariable String node,@RequestBody JSONObject input){
+return meService.getDHCP(node,input);
+    }
+
     @RequestMapping("/managed-element-time")
     public String setManagedElementTime(@PathVariable String node, @RequestBody JSONObject input) {
         return meService.setManagedElementTime(node, input);

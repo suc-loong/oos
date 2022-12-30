@@ -3,6 +3,7 @@ package com.hctel.oos;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.hctel.oos.common.utils.IPUtils;
 import com.hctel.oos.common.utils.LoadJSONFile;
 import com.hctel.oos.common.utils.PrettyJSON;
 import com.hctel.oos.login.entity.User;
@@ -30,6 +31,11 @@ class OOSDevApplicationTests {
 
     @Resource
     NetconfProtocolUtils netconfProtocolUtils;
+
+    @Test
+    public void getIPList(){
+        IPUtils.getLocalIPList();
+    }
 
     @Test
     void contextLoads() {

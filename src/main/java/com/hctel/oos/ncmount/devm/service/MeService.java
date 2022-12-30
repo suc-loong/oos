@@ -2,6 +2,8 @@ package com.hctel.oos.ncmount.devm.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.hctel.oos.ncmount.entity.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  * Description
@@ -75,6 +77,35 @@ public interface MeService {
      * @return 操作状态
      */
     String modifyUserPassword(String node, JSONObject input);
+
+    /**
+     * 获取中继服务器信息
+     * @param node
+     * @param input
+     * @return
+     */
+    String getDHCP(String node, JSONObject input);
+    /**
+     * 获取中继服务器信息
+     * @param node 网元名称
+     * @param input 下发信息
+     * {
+     *     "relay-serverip": "127.0.0.1",
+     *     "relay-server-enable": true
+     * }
+     * @return
+     */
+    String setDHCP(String node, JSONObject input);
+    /**
+     * 获取中继服务器信息
+     * @param node 网元名称
+     * @param input 下发信息
+     * {
+     *     "relay-serverip": "127.0.0.1"
+     *  }
+     * @return
+     */
+    String deleteDHCP(String node, JSONObject input);
 
     //////////////////////////////////////////////////////////////////////////
 

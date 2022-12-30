@@ -30,6 +30,9 @@ public class IPUtils {
         } catch (SocketException e) {
             e.printStackTrace();
         }
+        for (String s : ipList) {
+            System.out.println(s);
+        }
         return ipList;
     }
     // 正确的IP拿法，即优先拿site-local地址
