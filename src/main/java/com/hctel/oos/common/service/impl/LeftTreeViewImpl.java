@@ -20,6 +20,7 @@ import javax.annotation.Resource;
 public class LeftTreeViewImpl implements LeftTreeViewService {
     public static final String LABEL = "label";
     public static final String NAME = "name";
+    public static final String TYPE = "type";
     public static final String VALUE = "value";
     public static final String CHILDREN = "children";
     @Resource
@@ -91,6 +92,7 @@ public class LeftTreeViewImpl implements LeftTreeViewService {
                 String slot = match.substring(0, index);
                 String eqName = isMatch(name, "/EQ=");
                 obj1.put(LABEL, "槽道-" + slot + " " + eqName);
+                obj1.put(TYPE, eqName);
                 obj1.put(NAME, name);
                 obj1.put(VALUE, 3);
             }

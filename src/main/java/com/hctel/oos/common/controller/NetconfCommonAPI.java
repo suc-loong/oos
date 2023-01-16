@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 
 /**
  * Description
+ * 基于网元（挂载点）的netconf通用操作接口
  *
  * @Author wcloong
  * @Date 2022/12/30 16:15
@@ -22,12 +23,12 @@ public class NetconfCommonAPI {
     private NetconfCommonAPIService netconfCommonAPIService;
 
     @PostMapping("/get")
-    public JSONObject generalGetRequest(@PathVariable String node, @RequestBody JSONObject input){
-        return netconfCommonAPIService.generalGetRequest(node,input);
+    public JSONObject generalGetRequest(@PathVariable String node, @RequestBody JSONObject input) {
+        return netconfCommonAPIService.generalGetRequest(node, input);
     }
 
     @PostMapping("/edit-config")
-    public JSONObject generalEditConfigRequest(@PathVariable String node, @RequestBody JSONObject input){
-        return netconfCommonAPIService.generalEditConfigRequest(node,input);
+    public JSONObject generalEditConfigRequest(@PathVariable String node, @RequestBody JSONObject input) {
+        return netconfCommonAPIService.generalEditConfigRequest(node, input);
     }
 }

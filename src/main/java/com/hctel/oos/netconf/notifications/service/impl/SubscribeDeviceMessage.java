@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.hctel.oos.common.utils.PrettyJSON;
 import com.hctel.oos.jeroMq.ZMQSubscriberThread;
+import com.hctel.oos.websocket.WebSocketServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -60,6 +61,7 @@ public class SubscribeDeviceMessage {
 
                 msg = msg.replace("session:", "");
                 System.out.println(msg);
+                WebSocketServer.sendInfo(msg);
             }
         };
         zmqSubThread.subscribe("session");

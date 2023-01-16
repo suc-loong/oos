@@ -162,7 +162,7 @@ public class ODLNetconfChannelUtils {
 
     // Send HTTP request to ODL
     // Establish HTTP request
-    CloseableHttpClient httpClient = HttpClients.createDefault();
+    final CloseableHttpClient httpClient = HttpClients.createDefault();
 
     /**
      * 发送get请求到odl

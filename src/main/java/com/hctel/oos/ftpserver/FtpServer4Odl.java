@@ -30,11 +30,12 @@ public class FtpServer4Odl {
         String ip = null;
         try {
             ip = IPUtils.getLocalHostLANAddress().getHostAddress();
+            System.out.println("ip: "+ip);
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
 
-        factory.setServerAddress(ip);
+        factory.setServerAddress("192.168.10.58");
 
         //替换默认监听
         serverFactory.addListener("default", factory.createListener());
